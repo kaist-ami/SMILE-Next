@@ -1,6 +1,7 @@
 # SMILE-Next: Teaching Large Language Models to Detect, Classify, and Reason about Laughter
 <h3>ACL 2026 Oral</h3>
-**Lee Jung-Mok · Kim Sung-Bin · Joohyun Chang · Lee Hyun · Tae-Hyun Oh**
+
+<!-- **Lee Jung-Mok · Kim Sung-Bin · Joohyun Chang · Lee Hyun · Tae-Hyun Oh** -->
 
 ### [Project Page](https://mok0102.github.io/smile-next/) | [Paper](https://aclanthology.org/2026.acl-long.2023/) | [Dataset](https://huggingface.co/datasets/mok0102/SMILE-Next)
 This repository contains the official implementation of the SMILE-Next paper,
@@ -10,7 +11,7 @@ This repository contains the official implementation of the SMILE-Next paper,
 <!-- <img width="960" alt="teaser_camready" src="https://github.com/postech-ami/SMILE-Next/imgs/qualitative_results.png"> -->
 <img width="960" alt="teaser_camready" src="./imgs/qualitative_results.png">
 
-## Highlights
+# Highlights
 **SMILE-Next enables comprehensive real-world laughter understanding beyond isolated recognition tasks.** 
 
 🌟 We introduce **😆 SMILE-Next**, a large-scale benchmark with multimodal textual representations and QA annotations covering three fundamental laughter understanding tasks: `laughter detection`, `laughter type classification`, and `laughter reasoning`.
@@ -20,12 +21,12 @@ This repository contains the official implementation of the SMILE-Next paper,
 🚀 Our approach, utilizing multimodal textual representation with Mixture-of-Laugh-Experts has outperformed multimodal audio-visual LLMs, visual LLMs, advancing robust and nuanced understanding of laughter in real-world social interactions.
 
 
-## Getting started
+# Getting started
 This code was developed on Ubuntu 18.04 with Python 3.8, CUDA 12.1 and PyTorch 2.6.0, using NVIDIA RTX A100 (80GB) 4 GPU. 
 Older or Later versions should work, but have not been tested.
 
 
-### Environment setup
+## Environment setup
 
 ```bash
 conda create -n smilenext python=3.11
@@ -65,13 +66,13 @@ conda activate smilenext
 pip install -e .
 ```
 
-### Preparing SMILE-Next dataset
+## Preparing SMILE-Next dataset
 We provide the SMILE-Next's textual multimodal instruction dataset for LLM training at `SMILE-Next/data`.
 
 
 
 
-### Training with Mixture-of-Experts
+## Training with Mixture-of-Experts
 Given a SMILE-Next dataset with self-instruction, you can simply 
 ```bash
 # Qwen2.5-7B-MoLE
@@ -81,7 +82,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3 FORCE_TORCHRUN=1 llamafactory-cli train llamafactor
 CUDA_VISIBLE_DEVICES=0,1,2,3 FORCE_TORCHRUN=1  llamafactory-cli train llamafactory_configs/llama3_selfinst_moelora_sft_ds3.yaml
 ```
 
-### Inference
+## Inference
 You can conduct an inference by using below code.
 ```bash
 # Caution: No LoRA merge is conducted for MoLE due to the gating
