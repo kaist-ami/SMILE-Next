@@ -1,6 +1,9 @@
-# SMILE-Next (ACL 2026 Oral)
+# SMILE-Next: Teaching Large Language Models to Detect, Classify, and Reason about Laughter
+<h3>ACL 2026 <mark>Oral Presentation</mark></h3>
+
 ### [Project Page](https://mok0102.github.io/smile-next/) | [Paper](https://aclanthology.org/2026.acl-long.2023/) | [Dataset](https://huggingface.co/datasets/mok0102/SMILE-Next)
 This repository contains the official implementation of the SMILE-Next paper,
+
 "😆 SMILE-Next: Teaching Large Language Models to Detect, Classify, and Reason about Laughter".
 
 <!-- <img width="960" alt="teaser_camready" src="https://github.com/postech-ami/SMILE-Next/imgs/qualitative_results.png"> -->
@@ -35,6 +38,10 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 # install required packages
 pip install -r requirements.txt
 ```
+
+Especiallly, two packages are customized for Mixture-of-Laugh-Experts Training:
+- LLaMA-Factory (https://github.com/hiyouga/LlamaFactory)
+- PEFT (https://github.com/huggingface/peft)
 
 ### Preparing SMILE-Next dataset
 We provide the SMILE-Next's textual multimodal instruction dataset for LLM training at `SMILE-Next/data`.
