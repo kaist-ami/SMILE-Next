@@ -144,61 +144,6 @@ def infer_qwen(
             return_dict_in_generate=True,
             do_sample=False,
         )
-        
-        
-        if label.startswith("Yes.") or label.startswith("No."):
-            task = "detection"
-            
-        elif label.startswith("The laugh type") or label.startswith("The laugh type"):
-            task = "classification"
-            
-        elif label.startswith("The audience laughed") or label.startswith("The person laughed"):
-            task = "lreasoning"
-            
-        else:
-            if label.startswith("The humor type"):
-                task = "classification"
-            else:
-                continue
-        
-        for i in range(28):
-            # gate_proj_weight = torch.mean(output.attentions[0][i][0], dim=1)
-            # up_proj_weight = torch.mean(output.attentions[0][i][1], dim=1)    
-            # down_proj_weight = torch.mean(output.attentions[0][i][2], dim=1)
-            
-            temp = [e for e in output.attentions]
-            temp = [e[i] for e in temp]### layer
-            # temp = [[e[0][:, 1:], e[1][:, 1:], e[2][:, 1:], e[3][:, 1:]] for e 
-            # in temp[0]]
-            
-            res = [torch.stack([temp[tok+1][0] for tok in range(len(temp)-1)], dim=1), 
-                    torch.stack([temp[tok+1][1] for tok in range(len(temp)-1)], dim=1),
-                    torch.stack([temp[tok+1][2] for tok in range(len(temp)-1)], dim=1),
-                    torch.stack([temp[tok+1][3] for tok in range(len(temp)-1)], dim=1)]
-
-            # query = torch.mean(res[0], dim=1)
-            # key = torch.mean(res[1], dim=1)    
-            # value = torch.mean(res[2], dim=1)
-            # o = torch.mean(res[3], dim=1)
-            
-            query = torch.mean(output.attentions[2][i][0], dim=1)
-            key = torch.mean(output.attentions[2][i][1], dim=1)    
-            value = torch.mean(output.attentions[2][i][2], dim=1)
-            o = torch.mean(output.attentions[2][i][3], dim=1)
-
-            # query = output.attentions[0][i][0]#[-1]
-            # key = output.attentions[0][i][1]#[-1]
-            # value = output.attentions[0][i][2]#[-1]
-            # o = output.attentions[0][i][3]#[-1]
-
-            with open(f'./debug{i}.jsonl', "a", encoding="utf-8") as f:
-                f.write(json.dumps({
-                    "task": task,
-                    "query_weight_mean": query.cpu().tolist(),
-                    "key_weight_mean": key.cpu().tolist(),
-                    "value_weight_mean": value.cpu().tolist(),
-                    "o_weight_mean": o.cpu().tolist(),
-                }, ensure_ascii=False) + "\n")
                 
         output = output.sequences
         prompt_length = len(prompt_token_ids)
