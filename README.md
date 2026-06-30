@@ -1,5 +1,6 @@
 # SMILE-Next: Teaching Large Language Models to Detect, Classify, and Reason about Laughter
 <h3>ACL 2026 Oral</h3>
+**Lee Jung-Mok · Kim Sung-Bin · Joohyun Chang · Lee Hyun · Tae-Hyun Oh**
 
 ### [Project Page](https://mok0102.github.io/smile-next/) | [Paper](https://aclanthology.org/2026.acl-long.2023/) | [Dataset](https://huggingface.co/datasets/mok0102/SMILE-Next)
 This repository contains the official implementation of the SMILE-Next paper,
