@@ -39,9 +39,30 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 pip install -r requirements.txt
 ```
 
-Especiallly, two packages are customized for Mixture-of-Laugh-Experts Training:
-- LLaMA-Factory (https://github.com/hiyouga/LlamaFactory)
-- PEFT (https://github.com/huggingface/peft)
+### Installation of the customized packages
+Especiallly, [LLamaFactory](https://github.com/hiyouga/LlamaFactory), [PEFT](https://github.com/huggingface/peft) packages are customized for Mixture-of-Laugh-Experts Training.
+
+#### Customized LLamaFactory Installation
+I have provided the customized LLamaFactory at here: https://github.com/mok0102/LlamaFactory.
+
+For installating the customzied LLamaFactory, please follow below.
+```bash
+git clone --branch smilenext-version https://github.com/mok0102/LlamaFactory.git
+git 
+conda activate smilenext
+pip install -e .
+```
+
+#### Customized PEFT Installation
+The customized PEFT for MoLE is at: https://github.com/mok0102/peft
+
+For installating the customzied PEFT, please follow below.
+```bash
+git clone --branch smilenext-version https://github.com/mok0102/peft.git
+git 
+conda activate smilenext
+pip install -e .
+```
 
 ### Preparing SMILE-Next dataset
 We provide the SMILE-Next's textual multimodal instruction dataset for LLM training at `SMILE-Next/data`.
