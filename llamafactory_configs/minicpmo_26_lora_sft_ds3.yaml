@@ -1,0 +1,39 @@
+### model
+model_name_or_path: openbmb/MiniCPM-o-2_6 # MiniCPM-o-2_6 MiniCPM-V-2_6
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: q_proj,v_proj
+
+### dataset
+dataset: smilenext_video_audio  # smilenext_video_audio # mllm_demo mllm_video_demo mllm_audio_demo
+template: minicpm_o # minicpm_o minicpm_v
+cutoff_len: 32768
+max_samples: 1000 #4765
+overwrite_cache: true
+preprocessing_num_workers: 32
+
+### output
+output_dir: saves/minicpmo_2_6/lora/sft_10
+logging_steps: 1
+save_steps: 100
+plot_loss: true
+overwrite_output_dir: true
+# save_total_limit: 10
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-5
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: false #true
+ddp_timeout: 180000000
+save_only_model: true
+
+### eval
+# do_eval: false

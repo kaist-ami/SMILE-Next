@@ -1,0 +1,14 @@
+
+### model
+model_name_or_path: openbmb/MiniCPM-o-2_6
+# adapter_name_or_path: saves/minicpmo_2_6/lora/sft_10
+adapter_name_or_path: /home/mok/module/ijcv25/models/saves/minicpmo_2_6/lora/sft/checkpoint-5100
+template: minicpm_o
+trust_remote_code: true
+
+### export
+# export_dir: saves/minicpmo_2_6/lora/sft_10/merged_output/
+export_dir : /home/mok/module/ijcv25/models/saves/minicpmo_2_6/lora/sft/checkpoint-5100/merged_output
+export_size: 5
+export_device: cpu
+export_legacy_format: false
