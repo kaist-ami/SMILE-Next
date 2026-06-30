@@ -20,7 +20,7 @@ This repository contains the official implementation of the SMILE-Next paper,
 
 
 ## Getting started
-This code was developed on Ubuntu 18.04 with Python 3.8, CUDA 12.1 and PyTorch 1.12.0, using NVIDIA RTX A100 (80GB) 4 GPU. 
+This code was developed on Ubuntu 18.04 with Python 3.8, CUDA 12.1 and PyTorch 2.6.0, using NVIDIA RTX A100 (80GB) 4 GPU. 
 Older or Later versions should work, but have not been tested.
 
 
