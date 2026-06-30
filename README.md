@@ -43,7 +43,7 @@ pip install -r requirements.txt
 Especiallly, [LLamaFactory](https://github.com/hiyouga/LlamaFactory), [PEFT](https://github.com/huggingface/peft) packages are customized for Mixture-of-Laugh-Experts Training.
 
 #### Customized LLamaFactory Installation
-I have provided the customized LLamaFactory at here: https://github.com/mok0102/LlamaFactory.
+I have provided the customized LLamaFactory at here: https://github.com/mok0102/LlamaFactory. To find the modification, please check the branch smilenext-version.
 
 For installating the customzied LLamaFactory, please follow below.
 ```bash
@@ -54,7 +54,7 @@ pip install -e .
 ```
 
 #### Customized PEFT Installation
-The customized PEFT for MoLE is at: https://github.com/mok0102/peft
+The customized PEFT for MoLE is at: https://github.com/mok0102/peft. To find the modification, please check the branch smilenext-version.
 
 For installating the customzied PEFT, please follow below.
 ```bash
@@ -74,10 +74,10 @@ We provide the SMILE-Next's textual multimodal instruction dataset for LLM train
 Given a SMILE-Next dataset with self-instruction, you can simply 
 ```bash
 # Qwen2.5-7B-MoLE
-CUDA_VISIBLE_DEVICES=0,1,2,3 FORCE_TORCHRUN=1 llamafactory-cli train llamafactory_configs/qwen25_moelora_sft_ds3.yaml
+CUDA_VISIBLE_DEVICES=0,1,2,3 FORCE_TORCHRUN=1 llamafactory-cli train llamafactory_configs/qwen25_selfinst_moelora_sft_ds3.yaml
 
 # LLaMA3-7B-MoLE
-CUDA_VISIBLE_DEVICES=0,1,2,3 llamafactory-cli train llamafactory_configs/qwen25_selfinst_moelora_sft_ds3.yaml
+CUDA_VISIBLE_DEVICES=0,1,2,3 FORCE_TORCHRUN=1  llamafactory-cli train llamafactory_configs/llama3_selfinst_moelora_sft_ds3.yaml
 ```
 
 ### Inference
@@ -86,7 +86,7 @@ You can conduct an inference by using below code.
 # Caution: No LoRA merge is conducted for MoLE due to the gating
 
 # LLaMA3-MoLE inference
-CUDA_VISIBLE_DEVICES=0 python3 scripts/inference_llama3.py --adapter_name_or_path "./models/saves/llama3-8b/moelora/sft_selfinst" --save_name ./models/saves/qwen2.5-7b/moelora/sft_selfinst/generated_predictions.jsonl
+CUDA_VISIBLE_DEVICES=0 python3 scripts/inference_llama3.py --adapter_name_or_path "./models/saves/llama3-8b/moelora/sft_selfinst" --save_name ./models/saves/llama3-8b/moelora/sft_selfinst/generated_predictions.jsonl
 
 # Qwen2.5-MoLE inference
 CUDA_VISIBLE_DEVICES=0 python3 scripts/inference_llama3.py
